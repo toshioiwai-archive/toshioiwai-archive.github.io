@@ -8,6 +8,9 @@
 {{/* メタディスクリプション */}}
 <meta name="description" content="{{ .Site.Params.description }}">
 
+{{/* 検索エンジンにインデックスさせない */}}
+<meta name="robots" content="noindex, nofollow">
+
 {{/* カスタムCSS（存在する場合） */}}
 {{ partialCached "head/css.html" . }}
 
