@@ -18,3 +18,12 @@ theme = 'toshioiwai'
     title = 'Toshio Iwai Archive'
     [languages.en.params]
       description = 'Archive of Toshio Iwai'
+
+# Mount opendata directory to static/opendata for GitHub Pages
+[[module.mounts]]
+  source = "static"
+  target = "static"
+
+[[module.mounts]]
+  source = "../opendata"
+  target = "static/opendata"
