@@ -1,68 +1,68 @@
 # Toshio Iwai Archive Website
 
-岩井俊雄氏のアーカイブサイト。
+Archive website for Toshio Iwai.
 
-## 技術スタック
-- フレームワーク: Hugo (v0.145.0+)
-- デプロイ: GitHub Actions
-- ホスティング: GitHub Pages
-- テーマ: toshioiwai（カスタムテーマ）
-- 言語: 日本語（デフォルト）+ 英語対応
+## Tech Stack
+- Framework: Hugo (v0.145.0+)
+- Deployment: GitHub Actions
+- Hosting: GitHub Pages
+- Theme: toshioiwai (custom theme)
+- Languages: Japanese (default) + English
 
-## ディレクトリ構造
+## Directory Structure
 
 ```
 website/
-├── archetypes/      # コンテンツテンプレート
-├── assets/          # CSS, JS などの処理対象アセット
-├── content/         # サイトコンテンツ（Markdown）
-├── data/            # データファイル（CSV, JSON等）
-├── i18n/            # 多言語対応の翻訳ファイル
-├── layouts/         # HTMLテンプレート
-├── static/          # 静的ファイル（画像、フォント等）
-├── themes/          # テーマディレクトリ
-│   └── toshioiwai/  # カスタムテーマ
-└── hugo.toml        # Hugo設定ファイル
+├── archetypes/      # Content templates
+├── assets/          # CSS, JS and other processed assets
+├── content/         # Site content (Markdown)
+├── data/            # Data files (CSV, JSON, etc.)
+├── i18n/            # Internationalization translation files
+├── layouts/         # HTML templates
+├── static/          # Static files (images, fonts, etc.)
+├── themes/          # Theme directory
+│   └── toshioiwai/  # Custom theme
+└── hugo.toml        # Hugo configuration file
 ```
 
-## 開発コマンド
+## Development Commands
 
-### 開発サーバーの起動
+### Start Development Server
 
 ```bash
 cd website
 hugo server -D
 ```
 
-開発サーバーは http://localhost:1313/ でアクセス可能。
+Development server is accessible at http://localhost:1313/
 
-### 本番ビルド
+### Production Build
 
 ```bash
 cd website
 hugo
 ```
 
-ビルドされたファイルは `public/` ディレクトリに出力されます。
+Built files are output to the `public/` directory.
 
-### ドラフトも含めてビルド
+### Build Including Drafts
 
 ```bash
 cd website
 hugo -D
 ```
 
-## コンテンツ管理
+## Content Management
 
-`content/` ディレクトリ配下に、以下のセクションのコンテンツが Markdown 形式で格納されています：
+Content is stored in Markdown format under the `content/` directory in the following sections:
 
-- `content/works/` - 作品情報
-- `content/events/` - 展覧会情報
-- `content/media/` - メディア掲載情報
+- `content/works/` - Artworks information
+- `content/events/` - Exhibitions information
+- `content/media/` - Media coverage information
 
-各コンテンツは日本語（.ja.md）と英語（.en.md）のファイルがあります。
+Each content item has both Japanese (.ja.md) and English (.en.md) files.
 
-## デプロイ
+## Deployment
 
-GitHub Actions によって自動デプロイされます。
-`main` ブランチへのプッシュ時に自動的にビルド・デプロイが実行されます。
+Automatically deployed via GitHub Actions.
+Build and deployment are triggered automatically when pushing to the `main` branch.
