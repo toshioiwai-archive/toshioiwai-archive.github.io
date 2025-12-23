@@ -1,0 +1,4 @@
+id,type,title,title_en,publication,publication_en,date,url
+media-001,article,メディア記事タイトル例,Example Media Article Title,雑誌名,Magazine Name,1985-05-15,https://example.com/article
+media-002,book,書籍タイトル例,Example Book Title,出版社名,Publisher Name,1990-12-01,
+media-003,video,ビデオタイトル例,Example Video Title,TV局名,TV Station Name,1991-03-20,https://example.com/video
