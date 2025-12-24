@@ -1,0 +1,26 @@
+[
+  {
+    "id": "event-001",
+    "title": "展覧会タイトル例",
+    "title_en": "Example Exhibition Title",
+    "venue": "美術館名",
+    "venue_en": "Museum Name",
+    "start_date": "1985-04-01",
+    "end_date": "1985-06-30",
+    "location": "東京",
+    "location_en": "Tokyo",
+    "description": "展覧会の説明文"
+  },
+  {
+    "id": "event-002",
+    "title": "個展タイトル例",
+    "title_en": "Solo Exhibition Example",
+    "venue": "ギャラリー名",
+    "venue_en": "Gallery Name",
+    "start_date": "1990-10-15",
+    "end_date": "1990-11-30",
+    "location": "大阪",
+    "location_en": "Osaka",
+    "description": "個展の説明文"
+  }
+]

@@ -1,0 +1,26 @@
+{{/* Content adapter: Generate event pages from JSON data */}}
+{{ $events := site.Data.opendata.events }}
+
+{{ range $events }}
+  {{ $params := dict
+    "id" .id
+    "title" .title
+    "title_en" .title_en
+    "venue" .venue
+    "venue_en" .venue_en
+    "start_date" .start_date
+    "end_date" .end_date
+    "location" .location
+    "location_en" .location_en
+    "description" .description
+  }}
+
+  {{ $page := dict
+    "path" .id
+    "title" .title
+    "kind" "page"
+    "params" $params
+  }}
+
+  {{ $.AddPage $page }}
+{{ end }}

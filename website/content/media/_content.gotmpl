@@ -1,0 +1,24 @@
+{{/* Content adapter: Generate media pages from JSON data */}}
+{{ $media := site.Data.opendata.media }}
+
+{{ range $media }}
+  {{ $params := dict
+    "id" .id
+    "title" .title
+    "title_en" .title_en
+    "type" .type
+    "publication" .publication
+    "publication_en" .publication_en
+    "date" .date
+    "url" .url
+  }}
+
+  {{ $page := dict
+    "path" .id
+    "title" .title
+    "kind" "page"
+    "params" $params
+  }}
+
+  {{ $.AddPage $page }}
+{{ end }}

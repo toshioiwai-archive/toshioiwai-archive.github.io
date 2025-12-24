@@ -19,7 +19,7 @@ theme = 'toshioiwai'
     [languages.en.params]
       description = 'Archive of Toshio Iwai'
 
-# Mount opendata directory to static/opendata for GitHub Pages
+# Mount opendata directory
 [[module.mounts]]
   source = "static"
   target = "static"
@@ -27,3 +27,13 @@ theme = 'toshioiwai'
 [[module.mounts]]
   source = "../opendata"
   target = "static/opendata"
+
+# Mount opendata as Hugo data source (JSON only)
+[[module.mounts]]
+  source = "data"
+  target = "data"
+
+[[module.mounts]]
+  source = "../opendata"
+  target = "data/opendata"
+  includeFiles = ["*.json"]

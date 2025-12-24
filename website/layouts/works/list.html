@@ -1,0 +1,40 @@
+{{/* Works list page */}}
+{{ define "main" }}
+
+{{/* Page title */}}
+<h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
+
+{{/* Page content from _index.md */}}
+{{ .Content }}
+
+{{/* Works list - from content adapter generated pages */}}
+<div class="mt-8 space-y-6">
+    {{ range .Pages }}
+    <div class="border-b border-gray-200 pb-6">
+        <h2 class="text-xl font-bold mb-2">
+            <a href="{{ .Permalink }}" class="text-blue-600 hover:underline">
+                {{ if eq site.Language.Lang "en" }}
+                    {{ .Params.title_en | default .Params.title }}
+                {{ else }}
+                    {{ .Params.title }}
+                {{ end }}
+            </a>
+        </h2>
+
+        <div class="text-gray-600 text-sm mb-2">
+            {{ if .Params.year }}
+            <span class="mr-4">{{ if eq site.Language.Lang "en" }}Year{{ else }}制作年{{ end }}: {{ .Params.year }}</span>
+            {{ end }}
+            {{ if .Params.type }}
+            <span>{{ if eq site.Language.Lang "en" }}Type{{ else }}種別{{ end }}: {{ .Params.type }}</span>
+            {{ end }}
+        </div>
+
+        {{ if and .Params.title_en (ne site.Language.Lang "en") }}
+        <div class="text-gray-500 text-sm">{{ .Params.title_en }}</div>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+
+{{ end }}

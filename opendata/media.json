@@ -1,0 +1,32 @@
+[
+  {
+    "id": "media-001",
+    "type": "article",
+    "title": "メディア記事タイトル例",
+    "title_en": "Example Media Article Title",
+    "publication": "雑誌名",
+    "publication_en": "Magazine Name",
+    "date": "1985-05-15",
+    "url": "https://example.com/article"
+  },
+  {
+    "id": "media-002",
+    "type": "book",
+    "title": "書籍タイトル例",
+    "title_en": "Example Book Title",
+    "publication": "出版社名",
+    "publication_en": "Publisher Name",
+    "date": "1990-12-01",
+    "url": ""
+  },
+  {
+    "id": "media-003",
+    "type": "video",
+    "title": "ビデオタイトル例",
+    "title_en": "Example Video Title",
+    "publication": "TV局名",
+    "publication_en": "TV Station Name",
+    "date": "1991-03-20",
+    "url": "https://example.com/video"
+  }
+]

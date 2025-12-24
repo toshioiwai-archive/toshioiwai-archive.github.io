@@ -1,0 +1,22 @@
+{{/* Content adapter: Generate work pages from JSON data */}}
+{{ $works := site.Data.opendata.works }}
+
+{{ range $works }}
+  {{ $params := dict
+    "id" .id
+    "title" .title
+    "title_en" .title_en
+    "year" .year
+    "type" .type
+    "description" .description
+  }}
+
+  {{ $page := dict
+    "path" .id
+    "title" .title
+    "kind" "page"
+    "params" $params
+  }}
+
+  {{ $.AddPage $page }}
+{{ end }}

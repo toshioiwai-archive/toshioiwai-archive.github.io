@@ -1,23 +1,24 @@
 # Toshio Iwai Archive - Open Data
 
-This directory contains archive data for Toshio Iwai in CSV format.
+This directory contains archive data for Toshio Iwai in CSV and JSON formats.
 
 ## Files
 
-| File | Contents |
-|------|----------|
-| `works.csv` | Artworks data |
-| `events.csv` | Exhibitions data |
-| `media.csv` | Media coverage data |
+| File | Format | Contents |
+|------|--------|----------|
+| `works.csv` / `works.json` | CSV / JSON | Artworks data |
+| `events.csv` / `events.json` | CSV / JSON | Exhibitions data |
+| `media.csv` / `media.json` | CSV / JSON | Media coverage data |
 
-## Data Format
+## Data Formats
 
-All files are in CSV format with UTF-8 encoding.
+- **CSV**: UTF-8 encoded, suitable for spreadsheets and data analysis
+- **JSON**: UTF-8 encoded, suitable for web applications and APIs
 
-### works.csv
+### works
 
-| Column | Description |
-|--------|-------------|
+| Field | Description |
+|-------|-------------|
 | id | Work ID |
 | title | Title (Japanese) |
 | title_en | Title (English) |
@@ -25,10 +26,10 @@ All files are in CSV format with UTF-8 encoding.
 | type | Work type |
 | description | Description |
 
-### events.csv
+### events
 
-| Column | Description |
-|--------|-------------|
+| Field | Description |
+|-------|-------------|
 | id | Exhibition ID |
 | title | Title (Japanese) |
 | title_en | Title (English) |
@@ -40,10 +41,10 @@ All files are in CSV format with UTF-8 encoding.
 | location_en | Location (English) |
 | description | Description |
 
-### media.csv
+### media
 
-| Column | Description |
-|--------|-------------|
+| Field | Description |
+|-------|-------------|
 | id | Media ID |
 | type | Type (article, book, video, etc.) |
 | title | Title (Japanese) |
