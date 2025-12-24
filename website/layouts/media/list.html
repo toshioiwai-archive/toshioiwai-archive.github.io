@@ -1,27 +1,24 @@
 {{/* Media list page */}}
 {{ define "main" }}
 
-{{/* Page title */}}
 <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
 
-{{/* Page content from _index.md */}}
 {{ .Content }}
 
-{{/* Media list - from content adapter generated pages */}}
 <div class="mt-8 space-y-6">
     {{ range .Pages }}
     <div class="border-b border-gray-200 pb-6">
         <h2 class="text-xl font-bold mb-2">
             <a href="{{ .Permalink }}" class="text-blue-600 hover:underline">
-                {{ if eq site.Language.Lang "en" }}
-                    {{ .Params.title_en | default .Params.title }}
-                {{ else }}
-                    {{ .Params.title }}
-                {{ end }}
+                {{ .Params.title }}
             </a>
         </h2>
 
-        <div class="text-gray-600 text-sm mb-2">
+        {{ if .Params.title_en }}
+        <div class="text-gray-600 mb-2">{{ .Params.title_en }}</div>
+        {{ end }}
+
+        <div class="text-gray-500 text-sm mb-2">
             {{ if .Params.type }}
             <span class="mr-4">{{ .Params.type }}</span>
             {{ end }}
@@ -31,11 +28,8 @@
         </div>
 
         <div class="text-gray-500 text-sm">
-            {{ if eq site.Language.Lang "en" }}
-                {{ .Params.publication_en | default .Params.publication }}
-            {{ else }}
-                {{ .Params.publication }}
-            {{ end }}
+            {{ .Params.publication }}
+            {{ if .Params.publication_en }} / {{ .Params.publication_en }}{{ end }}
         </div>
     </div>
     {{ end }}

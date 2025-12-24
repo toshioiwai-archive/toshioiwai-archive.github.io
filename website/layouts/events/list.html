@@ -1,50 +1,37 @@
 {{/* Events list page */}}
 {{ define "main" }}
 
-{{/* Page title */}}
 <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
 
-{{/* Page content from _index.md */}}
 {{ .Content }}
 
-{{/* Events list - from content adapter generated pages */}}
 <div class="mt-8 space-y-6">
     {{ range .Pages }}
     <div class="border-b border-gray-200 pb-6">
         <h2 class="text-xl font-bold mb-2">
             <a href="{{ .Permalink }}" class="text-blue-600 hover:underline">
-                {{ if eq site.Language.Lang "en" }}
-                    {{ .Params.title_en | default .Params.title }}
-                {{ else }}
-                    {{ .Params.title }}
-                {{ end }}
+                {{ .Params.title }}
             </a>
         </h2>
 
-        <div class="text-gray-600 text-sm mb-2">
+        {{ if .Params.title_en }}
+        <div class="text-gray-600 mb-2">{{ .Params.title_en }}</div>
+        {{ end }}
+
+        <div class="text-gray-500 text-sm mb-2">
             {{ if .Params.start_date }}
             <span class="mr-4">
-                {{ if eq site.Language.Lang "en" }}Period{{ else }}期間{{ end }}:
-                {{ .Params.start_date }}{{ if .Params.end_date }} - {{ .Params.end_date }}{{ end }}
+                Period: {{ .Params.start_date }}{{ if .Params.end_date }} - {{ .Params.end_date }}{{ end }}
             </span>
             {{ end }}
             {{ if .Params.location }}
-            <span>
-                {{ if eq site.Language.Lang "en" }}
-                    {{ .Params.location_en | default .Params.location }}
-                {{ else }}
-                    {{ .Params.location }}
-                {{ end }}
-            </span>
+            <span>{{ .Params.location }}</span>
             {{ end }}
         </div>
 
         <div class="text-gray-500 text-sm">
-            {{ if eq site.Language.Lang "en" }}
-                {{ .Params.venue_en | default .Params.venue }}
-            {{ else }}
-                {{ .Params.venue }}
-            {{ end }}
+            {{ .Params.venue }}
+            {{ if .Params.venue_en }} / {{ .Params.venue_en }}{{ end }}
         </div>
     </div>
     {{ end }}

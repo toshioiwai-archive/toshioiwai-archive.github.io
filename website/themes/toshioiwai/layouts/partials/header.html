@@ -1,56 +1,18 @@
-{{/* ヘッダー: サイトタイトル、説明、ナビゲーション、言語切り替え */}}
+{{/* Header: Site title, description, navigation */}}
 
-{{/* サイトタイトル */}}
+{{/* Site title */}}
 <h1 class="text-2xl font-bold mb-2">
     <a href="/" class="no-underline text-gray-800 hover:text-gray-600">
         {{ site.Title }}
     </a>
 </h1>
 
-{{/* サイト説明 */}}
+{{/* Site description */}}
 <p class="text-gray-600 mb-5">{{ .Site.Params.description }}</p>
 
-{{/* ナビゲーションメニュー */}}
+{{/* Navigation menu */}}
 <nav class="flex flex-wrap items-center gap-5">
-    {{/* 言語別のナビゲーションリンク */}}
-    {{ if eq .Language.Lang "ja" }}
-    <a href="/works/" class="text-blue-600 hover:underline">作品</a>
-    <a href="/events/" class="text-blue-600 hover:underline">展覧会</a>
-    <a href="/media/" class="text-blue-600 hover:underline">メディア</a>
-    {{ else }}
-    <a href="/en/works/" class="text-blue-600 hover:underline">Works</a>
-    <a href="/en/events/" class="text-blue-600 hover:underline">Exhibitions</a>
-    <a href="/en/media/" class="text-blue-600 hover:underline">Media</a>
-    {{ end }}
-
-    {{/* 言語切り替えセクション: 常に「日本語 | English」の順序を維持 */}}
-    <span class="ml-5">|</span>
-
-    {{/* 日本語リンク/表示 */}}
-    {{ if eq .Language.Lang "ja" }}
-    {{/* 現在日本語ページの場合: 非リンクで表示 */}}
-    <span class="ml-2 font-semibold">日本語</span>
-    {{ else }}
-    {{/* 現在英語ページの場合: 日本語へのリンクを表示 */}}
-    {{ range .Translations }}
-    {{ if eq .Language.Lang "ja" }}
-    <a href="{{ .Permalink }}" class="ml-2 text-blue-600 hover:underline">日本語</a>
-    {{ end }}
-    {{ end }}
-    {{ end }}
-
-    <span class="ml-1">|</span>
-
-    {{/* 英語リンク/表示 */}}
-    {{ if eq .Language.Lang "en" }}
-    {{/* 現在英語ページの場合: 非リンクで表示 */}}
-    <span class="ml-1 font-semibold">English</span>
-    {{ else }}
-    {{/* 現在日本語ページの場合: 英語へのリンクを表示 */}}
-    {{ range .Translations }}
-    {{ if eq .Language.Lang "en" }}
-    <a href="{{ .Permalink }}" class="ml-1 text-blue-600 hover:underline">English</a>
-    {{ end }}
-    {{ end }}
-    {{ end }}
+    <a href="/works/" class="text-blue-600 hover:underline">Works</a>
+    <a href="/events/" class="text-blue-600 hover:underline">Exhibitions</a>
+    <a href="/media/" class="text-blue-600 hover:underline">Media</a>
 </nav>

@@ -1,25 +1,25 @@
-{{/* ベースレイアウト: 全ページ共通のHTMLストラクチャ */}}
+{{/* Base layout: Common HTML structure for all pages */}}
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<html lang="en" dir="ltr">
 <head>
-  {{/* メタタグやタイトル、CSSなどを読み込むpartial */}}
+  {{/* Meta tags, title, CSS */}}
   {{ partial "head.html" . }}
 
-  {{/* Tailwind CSS - CDN経由で読み込み */}}
+  {{/* Tailwind CSS - CDN */}}
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans leading-relaxed text-gray-800">
-  {{/* ヘッダー: サイトタイトル、ナビゲーション、言語切り替え */}}
+  {{/* Header: Site title, navigation */}}
   <header class="border-b-2 border-gray-800 mb-10 pb-5 px-5">
     {{ partial "header.html" . }}
   </header>
 
-  {{/* メインコンテンツエリア: 各ページ固有のコンテンツが挿入される */}}
+  {{/* Main content area */}}
   <main class="max-w-6xl mx-auto px-5">
     {{ block "main" . }}{{ end }}
   </main>
 
-  {{/* フッター */}}
+  {{/* Footer */}}
   <footer class="mt-20 py-10 border-t border-gray-300">
     {{ partial "footer.html" . }}
   </footer>

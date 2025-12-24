@@ -1,44 +1,25 @@
-{{/* トップページ: サイトのホームページレイアウト */}}
+{{/* Home page layout */}}
 {{ define "main" }}
 
-{{/* ページコンテンツ（_index.mdの内容） */}}
+{{/* Page content from _index.md */}}
 {{ .Content }}
 
-{{/* セクションカード: 作品、展覧会、メディアへのリンク */}}
+{{/* Section cards: Works, Exhibitions, Media */}}
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-    {{ if eq .Language.Lang "ja" }}
-    {{/* 日本語版のセクションカード */}}
     <a href="/works/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
-        <h2 class="text-xl font-bold text-blue-600 mb-3">作品 / Works</h2>
-        <p class="text-gray-600">岩井俊雄氏の作品を掲載しています。</p>
-    </a>
-
-    <a href="/events/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
-        <h2 class="text-xl font-bold text-blue-600 mb-3">展覧会 / Exhibitions</h2>
-        <p class="text-gray-600">展覧会・イベント情報を掲載しています。</p>
-    </a>
-
-    <a href="/media/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
-        <h2 class="text-xl font-bold text-blue-600 mb-3">メディア / Media</h2>
-        <p class="text-gray-600">メディア掲載情報・文献を掲載しています。</p>
-    </a>
-    {{ else }}
-    {{/* 英語版のセクションカード */}}
-    <a href="/en/works/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
-        <h2 class="text-xl font-bold text-blue-600 mb-3">Works / 作品</h2>
+        <h2 class="text-xl font-bold text-blue-600 mb-3">Works</h2>
         <p class="text-gray-600">Works by Toshio Iwai.</p>
     </a>
 
-    <a href="/en/events/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
-        <h2 class="text-xl font-bold text-blue-600 mb-3">Exhibitions / 展覧会</h2>
+    <a href="/events/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
+        <h2 class="text-xl font-bold text-blue-600 mb-3">Exhibitions</h2>
         <p class="text-gray-600">Exhibition and event information.</p>
     </a>
 
-    <a href="/en/media/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
-        <h2 class="text-xl font-bold text-blue-600 mb-3">Media / メディア</h2>
+    <a href="/media/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
+        <h2 class="text-xl font-bold text-blue-600 mb-3">Media</h2>
         <p class="text-gray-600">Media coverage and publications.</p>
     </a>
-    {{ end }}
 </div>
 
 {{ end }}

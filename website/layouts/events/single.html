@@ -1,70 +1,48 @@
 {{/* Event detail page */}}
 {{ define "main" }}
 
-{{/* Back link */}}
 <div class="mb-6">
     <a href="{{ .Section | absURL }}/" class="text-blue-600 hover:underline">
-        ← {{ if eq site.Language.Lang "en" }}Back to Exhibitions{{ else }}展覧会一覧に戻る{{ end }}
+        ← Back to Exhibitions
     </a>
 </div>
 
-{{/* Page title */}}
-<h1 class="text-3xl font-bold mb-3">
-    {{ if eq site.Language.Lang "en" }}
-        {{ .Params.title_en | default .Params.title }}
-    {{ else }}
-        {{ .Params.title }}
-    {{ end }}
-</h1>
+<h1 class="text-3xl font-bold mb-2">{{ .Params.title }}</h1>
 
-{{/* English title (if viewing Japanese) */}}
-{{ if and .Params.title_en (ne site.Language.Lang "en") }}
-<p class="text-gray-600 text-lg mb-6">{{ .Params.title_en }}</p>
+{{ if .Params.title_en }}
+<p class="text-gray-600 text-xl mb-6">{{ .Params.title_en }}</p>
 {{ end }}
 
-{{/* Meta info box */}}
 <div class="bg-gray-100 p-6 mb-8 rounded">
     <dl class="space-y-3">
-        {{/* ID */}}
         <div>
             <dt class="font-bold text-gray-700">ID</dt>
             <dd class="ml-5 text-gray-600">{{ .Params.id }}</dd>
         </div>
 
-        {{/* Venue */}}
         {{ if .Params.venue }}
         <div>
-            <dt class="font-bold text-gray-700">{{ if eq site.Language.Lang "en" }}Venue{{ else }}会場{{ end }}</dt>
+            <dt class="font-bold text-gray-700">Venue</dt>
             <dd class="ml-5 text-gray-600">
-                {{ if eq site.Language.Lang "en" }}
-                    {{ .Params.venue_en | default .Params.venue }}
-                {{ else }}
-                    {{ .Params.venue }}
-                    {{ if .Params.venue_en }} / {{ .Params.venue_en }}{{ end }}
-                {{ end }}
+                {{ .Params.venue }}
+                {{ if .Params.venue_en }} / {{ .Params.venue_en }}{{ end }}
             </dd>
         </div>
         {{ end }}
 
-        {{/* Location */}}
         {{ if .Params.location }}
         <div>
-            <dt class="font-bold text-gray-700">{{ if eq site.Language.Lang "en" }}Location{{ else }}開催地{{ end }}</dt>
+            <dt class="font-bold text-gray-700">Location</dt>
             <dd class="ml-5 text-gray-600">
-                {{ if eq site.Language.Lang "en" }}
-                    {{ .Params.location_en | default .Params.location }}
-                {{ else }}
-                    {{ .Params.location }}
-                    {{ if .Params.location_en }} / {{ .Params.location_en }}{{ end }}
-                {{ end }}
+                {{ .Params.location }}
+                {{ if .Params.location_en }} / {{ .Params.location_en }}{{ end }}
             </dd>
         </div>
         {{ end }}
 
-        {{/* Period */}}
         {{ if .Params.start_date }}
         <div>
-            <dt class="font-bold text-gray-700">{{ if eq site.Language.Lang "en" }}Period{{ else }}期間{{ end }}</dt>
+            <dt class="font-bold text-gray-700">Period</dt>
             <dd class="ml-5 text-gray-600">
                 {{ .Params.start_date }}
                 {{ if .Params.end_date }} - {{ .Params.end_date }}{{ end }}
@@ -74,7 +52,6 @@
     </dl>
 </div>
 
-{{/* Description */}}
 {{ if .Params.description }}
 <div class="prose max-w-none">
     <p>{{ .Params.description }}</p>
