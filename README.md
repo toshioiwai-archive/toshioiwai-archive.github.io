@@ -1,99 +1,100 @@
 # Toshio Iwai Archive
 
-岩井俊雄の作品・展覧会・メディア掲載情報を公開するアーカイブサイトです。
+An archive website for Toshio Iwai's artworks, exhibitions, and media coverage.
 
-> **⚠️ 現在準備中**: このプロジェクトは開発中であり、現在掲載されているデータはすべてダミーです。正式な公開に向けて準備を進めています。
+> **⚠️ Work in Progress**: This project is currently under development. All data shown is placeholder content. We are preparing for official launch.
 
-- **公開サイト（準備中）**: https://toshioiwai-archive.github.io/
+- **Website (WIP)**: https://toshioiwai-archive.github.io/
 
-## プロジェクト概要
+## Project Overview
 
-このプロジェクトは、岩井俊雄に関するアーカイブ情報を整理・公開することを目的としています。作品（works）、展覧会（events）、メディア掲載（media）の3種類の情報を管理し、公開可能なデータのみをウェブサイトおよびオープンデータとして提供する予定です。
+This project aims to organize and publish archive information about Toshio Iwai. It manages three types of information—works, events, and media—and will provide only publicly available data through the website and as open data.
 
-## 情報の公開方針
+## Data Publication Policy
 
-アーカイブ情報には公開・非公開の区分があります：
+Archive information is classified as either public or private:
 
-- **公開情報**: 作品名、展覧会名、開催期間など、一般に公開しても問題のない情報
-- **非公開情報**: 未発表の情報、関係者のみに共有される詳細情報など
+- **Public**: Information suitable for general release, such as artwork titles, exhibition names, and dates
+- **Private**: Unpublished information or details shared only with stakeholders
 
-非公開情報は別のプライベートリポジトリで管理され、このリポジトリには公開情報のみが含まれます。
+Private information is managed in a separate private repository. This repository contains only public information.
 
-## リポジトリの使い分け
+## Repository Structure
 
-本プロジェクトは2つのリポジトリで構成されています：
+This project consists of two repositories:
 
-| リポジトリ | 公開設定 | 役割 |
+| Repository | Visibility | Role |
 |-----------|---------|------|
-| `core` | Private | メタデータの原本管理、画像ファイル、処理スクリプト |
-| `toshioiwai-archive.github.io` | Public | 公開用ウェブサイト、オープンデータ配信 |
+| `core` | Private | Master metadata, image files, processing scripts |
+| `toshioiwai-archive.github.io` | Public | Public website, open data distribution |
 
-### データの流れ
+### Data Flow
 
 ```mermaid
 flowchart TB
     subgraph core["core (Private)"]
-        data["data/ (CSV)"]
+        data["data"]
         export["export.py"]
     end
 
-    subgraph public["toshioiwai-archive.github.io (Public)"]
+    subgraph public["This repo (Public)"]
         opendata["opendata/ (CSV, JSON)"]
         website["website/ (Hugo)"]
         pages["GitHub Pages"]
     end
 
-    data -->|"public=true のみ抽出"| export
+
+    data -->|"Extract public data only"| export
     export --> opendata
     opendata --> website
     website --> pages
 ```
 
-## リポジトリ構成
+## Directory Structure
 
 ```
-├── opendata/          # オープンデータ（CSV, JSON）
+├── opendata/          # Open data (CSV, JSON)
 │   └── LICENSE.md     # CC BY 4.0
-├── website/           # Hugo 静的サイト
-│   ├── content/       # サイトコンテンツ
-│   ├── themes/        # Hugo テーマ
-│   └── hugo.toml      # Hugo 設定ファイル
-└── LICENSE.md         # Apache 2.0（コード用）
+├── website/           # Hugo static site
+│   ├── content/       # Site content
+│   ├── themes/        # Hugo themes
+│   └── hugo.toml      # Hugo configuration
+└── LICENSE.md         # Apache 2.0 (for code)
 ```
 
-## ローカル開発
+## Local Development
 
-詳細は `website/readme.md` を参照してください。
+See `website/readme.md` for details.
 
 ```bash
 cd website
 hugo server -D
 ```
 
-http://localhost:1313/ でプレビューできます。
+Preview at http://localhost:1313/
 
-## デプロイ
+## Deployment
 
-GitHub Actions により自動でビルド・デプロイされます。`main` ブランチへの push をトリガーにデプロイが実行されます。
+Automatically built and deployed via GitHub Actions. Deployment is triggered on push to the `main` branch.
 
-## 技術スタック
+## Tech Stack
 
-- **静的サイトジェネレータ**: Hugo v0.145.0+
-- **ホスティング**: GitHub Pages
+- **Static Site Generator**: Hugo v0.145.0+
+- **Hosting**: GitHub Pages
 - **CI/CD**: GitHub Actions
 
-## ライセンス
+## License
 
-このリポジトリでは2種類のライセンスを使用しています：
+This repository uses two different licenses:
 
-| 対象 | ライセンス |
-|------|-----------|
-| コード・設定ファイル | [Apache License 2.0](LICENSE.md) |
-| オープンデータ（`opendata/`） | [CC BY 4.0](opendata/LICENSE.md) |
+| Content | License |
+|---------|---------|
+| Code & configuration files | [Apache License 2.0](LICENSE.md) |
+| Open data (`opendata/`) | [CC BY 4.0](opendata/LICENSE.md) |
 
-## オープンデータ
+## Open Data
 
-`opendata/` ディレクトリには、作品・展覧会・メディア掲載のメタデータが CSV および JSON 形式で格納されています。
+The `opendata/` directory contains metadata for artworks, exhibitions, and media coverage in CSV and JSON formats.
 
-- **GitHub から直接取得**: `opendata/*.csv`, `opendata/*.json`
-- **ウェブサイト経由**: https://toshioiwai-archive.github.io/opendata/
+- **Direct from GitHub**: `opendata/*.csv`, `opendata/*.json`
+- **Via website**: https://toshioiwai-archive.github.io/opendata/
