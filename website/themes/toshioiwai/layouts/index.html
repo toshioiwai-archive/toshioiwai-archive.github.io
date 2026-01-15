@@ -1,24 +1,49 @@
-{{/* Home page layout */}}
+{{/* Home page layout - daisyUI */}}
 {{ define "main" }}
+
+{{/* Hero section - full width */}}
+<div class="hero bg-base-200 rounded-box mb-12 py-16">
+    <div class="hero-content text-center">
+        <div class="max-w-2xl">
+            <h1 class="text-4xl md:text-5xl font-bold">{{ site.Title }}</h1>
+            <p class="py-6 text-lg text-base-content/70">{{ .Site.Params.description }}</p>
+        </div>
+    </div>
+</div>
 
 {{/* Page content from _index.md */}}
 {{ .Content }}
 
-{{/* Section cards: Works, Exhibitions, Media */}}
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-    <a href="/works/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
-        <h2 class="text-xl font-bold text-blue-600 mb-3">Works</h2>
-        <p class="text-gray-600">Works by Toshio Iwai.</p>
+{{/* Section cards: 12-column grid (4 cols each on desktop) */}}
+<div class="grid grid-cols-12 gap-6 mt-10">
+    <a href="/works/" class="col-span-12 md:col-span-4 card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-base-300">
+        <div class="card-body">
+            <h2 class="card-title text-primary text-xl">Works</h2>
+            <p class="text-base-content/70">Works by Toshio Iwai.</p>
+            <div class="card-actions justify-end mt-4">
+                <span class="text-primary text-sm font-medium">View all →</span>
+            </div>
+        </div>
     </a>
 
-    <a href="/events/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
-        <h2 class="text-xl font-bold text-blue-600 mb-3">Exhibitions</h2>
-        <p class="text-gray-600">Exhibition and event information.</p>
+    <a href="/events/" class="col-span-12 md:col-span-4 card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-base-300">
+        <div class="card-body">
+            <h2 class="card-title text-primary text-xl">Exhibitions</h2>
+            <p class="text-base-content/70">Exhibition and event information.</p>
+            <div class="card-actions justify-end mt-4">
+                <span class="text-primary text-sm font-medium">View all →</span>
+            </div>
+        </div>
     </a>
 
-    <a href="/media/" class="block border border-gray-300 p-8 rounded hover:shadow-lg transition-shadow">
-        <h2 class="text-xl font-bold text-blue-600 mb-3">Media</h2>
-        <p class="text-gray-600">Media coverage and publications.</p>
+    <a href="/media/" class="col-span-12 md:col-span-4 card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-base-300">
+        <div class="card-body">
+            <h2 class="card-title text-primary text-xl">Media</h2>
+            <p class="text-base-content/70">Media coverage and publications.</p>
+            <div class="card-actions justify-end mt-4">
+                <span class="text-primary text-sm font-medium">View all →</span>
+            </div>
+        </div>
     </a>
 </div>
 

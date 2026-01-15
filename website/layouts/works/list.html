@@ -1,30 +1,41 @@
-{{/* Works list page */}}
+{{/* Works list page - daisyUI */}}
 {{ define "main" }}
+
+{{/* Breadcrumb */}}
+<div class="breadcrumbs text-sm mb-6">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li>Works</li>
+    </ul>
+</div>
 
 <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
 
 {{ .Content }}
 
-<div class="mt-8 space-y-6">
+{{/* Works list as cards - 12-column grid */}}
+<div class="grid grid-cols-12 gap-6 mt-8">
     {{ range .Pages }}
-    <div class="border-b border-gray-200 pb-6">
-        <h2 class="text-xl font-bold mb-2">
-            <a href="{{ .Permalink }}" class="text-blue-600 hover:underline">
-                {{ .Params.title }}
-            </a>
-        </h2>
+    <div class="col-span-12 md:col-span-6 lg:col-span-4 card card-compact bg-base-100 shadow-sm hover:shadow-md transition-shadow border border-base-300">
+        <div class="card-body">
+            <h2 class="card-title text-lg">
+                <a href="{{ .Permalink }}" class="link link-hover link-primary">
+                    {{ .Params.title }}
+                </a>
+            </h2>
 
-        {{ if .Params.title_en }}
-        <div class="text-gray-600 mb-2">{{ .Params.title_en }}</div>
-        {{ end }}
+            {{ if .Params.title_en }}
+            <p class="text-base-content/70 text-sm">{{ .Params.title_en }}</p>
+            {{ end }}
 
-        <div class="text-gray-500 text-sm">
-            {{ if .Params.year }}
-            <span class="mr-4">Year: {{ .Params.year }}</span>
-            {{ end }}
-            {{ if .Params.type }}
-            <span>Type: {{ .Params.type }}</span>
-            {{ end }}
+            <div class="card-actions justify-start mt-3">
+                {{ if .Params.year }}
+                <div class="badge badge-outline">{{ .Params.year }}</div>
+                {{ end }}
+                {{ if .Params.type }}
+                <div class="badge badge-ghost">{{ .Params.type }}</div>
+                {{ end }}
+            </div>
         </div>
     </div>
     {{ end }}

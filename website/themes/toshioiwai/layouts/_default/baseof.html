@@ -1,27 +1,24 @@
 {{/* Base layout: Common HTML structure for all pages */}}
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="light">
 <head>
   {{/* Meta tags, title, CSS */}}
   {{ partial "head.html" . }}
 
-  {{/* Tailwind CSS - CDN */}}
+  {{/* daisyUI + Tailwind CSS - CDN */}}
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="font-sans leading-relaxed text-gray-800">
+<body class="min-h-screen flex flex-col bg-base-100">
   {{/* Header: Site title, navigation */}}
-  <header class="border-b-2 border-gray-800 mb-10 pb-5 px-5">
-    {{ partial "header.html" . }}
-  </header>
+  {{ partial "header.html" . }}
 
-  {{/* Main content area */}}
-  <main class="max-w-6xl mx-auto px-5">
+  {{/* Main content area - max 1440px with responsive padding */}}
+  <main class="flex-1 w-full max-w-[1440px] mx-auto px-6 md:px-12 py-8">
     {{ block "main" . }}{{ end }}
   </main>
 
   {{/* Footer */}}
-  <footer class="mt-20 py-10 border-t border-gray-300">
-    {{ partial "footer.html" . }}
-  </footer>
+  {{ partial "footer.html" . }}
 </body>
 </html>
