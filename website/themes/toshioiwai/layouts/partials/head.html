@@ -2,6 +2,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
+{{/* Google Fonts: Inter */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+
 {{/* ページタイトル: ホームの場合はサイトタイトルのみ、それ以外はページタイトル | サイトタイトル */}}
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
@@ -10,9 +15,6 @@
 
 {{/* 検索エンジンにインデックスさせない */}}
 <meta name="robots" content="noindex, nofollow">
-
-{{/* カスタムCSS（存在する場合） */}}
-{{ partialCached "head/css.html" . }}
 
 {{/* カスタムJS（存在する場合） */}}
 {{ partialCached "head/js.html" . }}

@@ -1,13 +1,16 @@
 {{/* Base layout: Common HTML structure for all pages */}}
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="light">
+<html lang="en" dir="ltr" data-theme="lofi">
 <head>
-  {{/* Meta tags, title, CSS */}}
+  {{/* Meta tags, title */}}
   {{ partial "head.html" . }}
 
   {{/* daisyUI + Tailwind CSS - CDN */}}
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
+
+  {{/* Custom CSS overrides (after daisyUI) */}}
+  {{ partialCached "head/css.html" . }}
 </head>
 <body class="min-h-screen flex flex-col bg-base-100">
   {{/* Header: Site title, navigation */}}
