@@ -2,7 +2,7 @@
 {{ define "main" }}
 
 {{/* ページタイトル */}}
-<h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
+<h1 class="text-3xl mb-6">{{ .Title }}</h1>
 
 {{/* ページコンテンツ（_index.mdの内容） */}}
 {{ .Content }}
@@ -11,16 +11,16 @@
 <div class="mt-8 space-y-6">
     {{ range .Pages }}
     {{/* 各アイテムのカード */}}
-    <div class="border-b border-gray-200 pb-6">
+    <div class="border-b border-base-300 pb-6">
         {{/* アイテムタイトル */}}
-        <h2 class="text-xl font-bold mb-2">
-            <a href="{{ .Permalink }}" class="text-blue-600 hover:underline">
+        <h2 class="text-xl mb-2">
+            <a href="{{ .Permalink }}" class="hover:underline">
                 {{ .Title }}
             </a>
         </h2>
 
         {{/* メタ情報: 制作年、期間、日付など */}}
-        <div class="text-gray-600 text-sm mb-2">
+        <div class="text-base-content/60 text-sm mb-2">
             {{ if .Params.year }}
             <span>制作年: {{ .Params.year }}</span>
             {{ end }}
@@ -34,7 +34,7 @@
 
         {{/* 英語タイトル（存在する場合） */}}
         {{ if .Params.title_en }}
-        <div class="text-gray-500 text-sm">{{ .Params.title_en }}</div>
+        <div class="text-base-content/50 text-sm">{{ .Params.title_en }}</div>
         {{ end }}
     </div>
     {{ end }}
