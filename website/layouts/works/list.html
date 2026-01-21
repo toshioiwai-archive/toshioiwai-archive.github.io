@@ -9,19 +9,17 @@
     </ul>
 </div>
 
-<h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
+<h1 class="text-3xl mb-6">{{ .Title }}</h1>
 
 {{ .Content }}
 
 {{/* Works list as cards - 12-column grid */}}
 <div class="grid grid-cols-12 gap-6 mt-8">
     {{ range .Pages }}
-    <div class="col-span-12 md:col-span-6 lg:col-span-4 card card-compact bg-base-100 shadow-sm hover:shadow-md transition-shadow border border-base-300">
+    <a href="{{ .RelPermalink }}" class="col-span-12 md:col-span-6 lg:col-span-4 card card-compact bg-base-100 hover:bg-base-200 transition-colors border border-base-300 block">
         <div class="card-body">
             <h2 class="card-title text-lg">
-                <a href="{{ .Permalink }}" class="link link-hover link-primary">
-                    {{ .Params.title }}
-                </a>
+                {{ .Params.title }}
             </h2>
 
             {{ if .Params.title_en }}
@@ -37,7 +35,7 @@
                 {{ end }}
             </div>
         </div>
-    </div>
+    </a>
     {{ end }}
 </div>
 
