@@ -3,6 +3,4 @@ title: "Toshio Iwai Archive"
 date: 2025-11-24
 ---
 
-Welcome to the Toshio Iwai Archive.
-
-This site features works, exhibitions, and media information.
+This site is currently under construction. All data shown is placeholder. Please check back soon.
