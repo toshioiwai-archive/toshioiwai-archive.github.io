@@ -1,25 +1,23 @@
 {{/* Header: daisyUI navbar */}}
-<header class="navbar bg-base-200 shadow-sm">
-    <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12">
-        {{/* Logo / Site title */}}
-        <div class="flex-1">
-            <a href="/" class="btn btn-ghost text-xl normal-case">
-                {{ site.Title }}
-            </a>
-        </div>
+<header class="bg-base-100">
+    <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+        {{/* Logo / Site title - h1 on home, p on other pages */}}
+        {{ if .IsHome }}
+        <h1><a href="/" class="text-xl hover:underline">{{ site.Title }}</a></h1>
+        {{ else }}
+        <p><a href="/" class="text-xl hover:underline">{{ site.Title }}</a></p>
+        {{ end }}
 
         {{/* Desktop navigation */}}
-        <div class="hidden md:flex">
-            <ul class="menu menu-horizontal px-1 gap-1">
-                <li><a href="/works/" class="btn btn-ghost btn-sm">Works</a></li>
-                <li><a href="/events/" class="btn btn-ghost btn-sm">Exhibitions</a></li>
-                <li><a href="/media/" class="btn btn-ghost btn-sm">Media</a></li>
-            </ul>
-        </div>
+        <nav class="hidden md:flex gap-6">
+            <a href="/works/" class="hover:underline">Works</a>
+            <a href="/events/" class="hover:underline">Exhibitions</a>
+            <a href="/media/" class="hover:underline">Media</a>
+        </nav>
 
         {{/* Mobile dropdown menu */}}
         <div class="dropdown dropdown-end md:hidden">
-            <div tabindex="0" role="button" class="btn btn-ghost">
+            <div tabindex="0" role="button" class="p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
