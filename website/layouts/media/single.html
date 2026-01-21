@@ -11,68 +11,51 @@
 </div>
 
 {{/* Title */}}
-<h1 class="text-3xl md:text-4xl font-bold mb-2">{{ .Params.title }}</h1>
+<h1 class="text-xl mb-2">{{ .Params.title }}</h1>
 
 {{ if .Params.title_en }}
-<p class="text-xl text-base-content/70 mb-8">{{ .Params.title_en }}</p>
+<p class="text-base text-base-content/70 mb-8">{{ .Params.title_en }}</p>
 {{ end }}
 
-{{/* 12-column grid layout */}}
-<div class="grid grid-cols-12 gap-8">
-    {{/* Info card - 4 columns on large screens */}}
-    <div class="col-span-12 lg:col-span-4">
-        <div class="card bg-base-200">
-            <div class="card-body">
-                <h3 class="card-title text-base mb-2">Details</h3>
-                <div class="overflow-x-auto">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                <th class="w-24">ID</th>
-                                <td><code class="text-sm">{{ .Params.id }}</code></td>
-                            </tr>
-                            {{ if .Params.type }}
-                            <tr>
-                                <th>Type</th>
-                                <td><div class="badge badge-primary badge-outline">{{ .Params.type }}</div></td>
-                            </tr>
-                            {{ end }}
-                            {{ if .Params.publication }}
-                            <tr>
-                                <th>Publication</th>
-                                <td>
-                                    {{ .Params.publication }}
-                                    {{ if .Params.publication_en }}<br><span class="text-sm text-base-content/60">{{ .Params.publication_en }}</span>{{ end }}
-                                </td>
-                            </tr>
-                            {{ end }}
-                            {{ if .Params.date }}
-                            <tr>
-                                <th>Date</th>
-                                <td>{{ .Params.date }}</td>
-                            </tr>
-                            {{ end }}
-                            {{ if .Params.url }}
-                            <tr>
-                                <th>URL</th>
-                                <td class="break-all">
-                                    <a href="{{ .Params.url }}" class="link link-primary text-sm" target="_blank" rel="noopener">
-                                        {{ .Params.url }}
-                                    </a>
-                                </td>
-                            </tr>
-                            {{ end }}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+{{/* Data */}}
+<div class="mt-8">
+    <dl class="divide-y divide-base-300">
+        <div class="py-3 flex">
+            <dt class="w-32 text-base-content/60">ID</dt>
+            <dd><code class="text-sm">{{ .Params.id }}</code></dd>
         </div>
-    </div>
-
-    {{/* Main content area - 8 columns on large screens */}}
-    <div class="col-span-12 lg:col-span-8">
-        {{/* Placeholder for future content */}}
-    </div>
+        {{ if .Params.type }}
+        <div class="py-3 flex">
+            <dt class="w-32 text-base-content/60">Type</dt>
+            <dd>{{ .Params.type }}</dd>
+        </div>
+        {{ end }}
+        {{ if .Params.publication }}
+        <div class="py-3 flex">
+            <dt class="w-32 text-base-content/60">Publication</dt>
+            <dd>
+                {{ .Params.publication }}
+                {{ if .Params.publication_en }}<br><span class="text-sm text-base-content/60">{{ .Params.publication_en }}</span>{{ end }}
+            </dd>
+        </div>
+        {{ end }}
+        {{ if .Params.date }}
+        <div class="py-3 flex">
+            <dt class="w-32 text-base-content/60">Date</dt>
+            <dd>{{ .Params.date }}</dd>
+        </div>
+        {{ end }}
+        {{ if .Params.url }}
+        <div class="py-3 flex">
+            <dt class="w-32 text-base-content/60">URL</dt>
+            <dd class="break-all">
+                <a href="{{ .Params.url }}" class="hover:underline" target="_blank" rel="noopener">
+                    {{ .Params.url }}
+                </a>
+            </dd>
+        </div>
+        {{ end }}
+    </dl>
 </div>
 
 {{ end }}

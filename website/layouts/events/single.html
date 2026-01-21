@@ -11,68 +11,48 @@
 </div>
 
 {{/* Title */}}
-<h1 class="text-3xl md:text-4xl font-bold mb-2">{{ .Params.title }}</h1>
+<h1 class="text-xl mb-2">{{ .Params.title }}</h1>
 
 {{ if .Params.title_en }}
-<p class="text-xl text-base-content/70 mb-8">{{ .Params.title_en }}</p>
+<p class="text-base text-base-content/70 mb-8">{{ .Params.title_en }}</p>
 {{ end }}
 
-{{/* 12-column grid layout */}}
-<div class="grid grid-cols-12 gap-8">
-    {{/* Info card - 4 columns on large screens */}}
-    <div class="col-span-12 lg:col-span-4">
-        <div class="card bg-base-200">
-            <div class="card-body">
-                <h3 class="card-title text-base mb-2">Details</h3>
-                <div class="overflow-x-auto">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                <th class="w-24">ID</th>
-                                <td><code class="text-sm">{{ .Params.id }}</code></td>
-                            </tr>
-                            {{ if .Params.venue }}
-                            <tr>
-                                <th>Venue</th>
-                                <td>
-                                    {{ .Params.venue }}
-                                    {{ if .Params.venue_en }}<br><span class="text-sm text-base-content/60">{{ .Params.venue_en }}</span>{{ end }}
-                                </td>
-                            </tr>
-                            {{ end }}
-                            {{ if .Params.location }}
-                            <tr>
-                                <th>Location</th>
-                                <td>
-                                    <div class="badge badge-outline">{{ .Params.location }}</div>
-                                    {{ if .Params.location_en }} {{ .Params.location_en }}{{ end }}
-                                </td>
-                            </tr>
-                            {{ end }}
-                            {{ if .Params.start_date }}
-                            <tr>
-                                <th>Period</th>
-                                <td>
-                                    {{ .Params.start_date }}
-                                    {{ if .Params.end_date }}<br>- {{ .Params.end_date }}{{ end }}
-                                </td>
-                            </tr>
-                            {{ end }}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+{{/* Description */}}
+{{ if .Params.description }}
+<div class="mb-8">
+    <p>{{ .Params.description }}</p>
+</div>
+{{ end }}
 
-    {{/* Description - 8 columns on large screens */}}
-    <div class="col-span-12 lg:col-span-8">
-        {{ if .Params.description }}
-        <div class="prose prose-lg max-w-none">
-            <p>{{ .Params.description }}</p>
+{{/* Data */}}
+<div class="mt-8">
+    <dl class="divide-y divide-base-300">
+        <div class="py-3 flex">
+            <dt class="w-32 text-base-content/60">ID</dt>
+            <dd><code class="text-sm">{{ .Params.id }}</code></dd>
+        </div>
+        {{ if .Params.venue }}
+        <div class="py-3 flex">
+            <dt class="w-32 text-base-content/60">Venue</dt>
+            <dd>
+                {{ .Params.venue }}
+                {{ if .Params.venue_en }}<br><span class="text-sm text-base-content/60">{{ .Params.venue_en }}</span>{{ end }}
+            </dd>
         </div>
         {{ end }}
-    </div>
+        {{ if .Params.location }}
+        <div class="py-3 flex">
+            <dt class="w-32 text-base-content/60">Location</dt>
+            <dd>{{ .Params.location }}{{ if .Params.location_en }} / {{ .Params.location_en }}{{ end }}</dd>
+        </div>
+        {{ end }}
+        {{ if .Params.start_date }}
+        <div class="py-3 flex">
+            <dt class="w-32 text-base-content/60">Period</dt>
+            <dd>{{ .Params.start_date }}{{ if .Params.end_date }} - {{ .Params.end_date }}{{ end }}</dd>
+        </div>
+        {{ end }}
+    </dl>
 </div>
 
 {{ end }}
