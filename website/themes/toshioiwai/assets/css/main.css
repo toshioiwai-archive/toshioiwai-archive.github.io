@@ -1,6 +1,15 @@
 /* Base styles - daisyUI handles most styling */
 /* This file is for any custom overrides if needed */
 
+/* Self-hosted Inter font (Latin only, Japanese falls back to system fonts) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-latin-400.woff2') format('woff2');
+}
+
 /* Base font size 18px */
 html {
   font-size: 18px !important;
@@ -8,7 +17,7 @@ html {
 
 /* Inter font + uniform weight + no letter-spacing */
 * {
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-weight: 400 !important;
   letter-spacing: 0 !important;
 }

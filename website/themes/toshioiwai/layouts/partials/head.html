@@ -2,10 +2,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
-{{/* Google Fonts: Inter */}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+{{/* Self-hosted Inter font: preload to avoid FOUT */}}
+<link rel="preload" href="/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
 
 {{/* ページタイトル: ホームの場合はサイトタイトルのみ、それ以外はページタイトル | サイトタイトル */}}
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
