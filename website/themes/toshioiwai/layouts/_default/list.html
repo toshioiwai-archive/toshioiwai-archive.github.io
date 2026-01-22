@@ -1,8 +1,8 @@
 {{/* 一覧ページ: 作品、展覧会、メディアの一覧を表示 */}}
 {{ define "main" }}
 
-{{/* ページタイトル */}}
-<h1 class="text-3xl mb-6">{{ .Title }}</h1>
+{{/* ページタイトル + 件数 */}}
+<h1 class="text-3xl mb-6">{{ .Title }} <span class="badge badge-alpha rounded-full">{{ len .Pages }}</span></h1>
 
 {{/* ページコンテンツ（_index.mdの内容） */}}
 {{ .Content }}

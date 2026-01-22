@@ -8,7 +8,7 @@
 <div class="grid grid-cols-12 gap-6 mt-10">
     <a href="/works/" class="col-span-12 md:col-span-4 card bg-base-100 hover:bg-base-200 transition-colors border border-base-300">
         <div class="card-body">
-            <h2 class="card-title text-xl">Works</h2>
+            <h2 class="card-title text-xl">Works <span class="badge badge-sm badge-alpha rounded-full">{{ len site.Data.opendata.works }}</span></h2>
             <p class="text-base-content/70">Works by Toshio Iwai.</p>
             <div class="card-actions justify-end mt-4">
                 <span class="text-sm">View all →</span>
@@ -18,7 +18,7 @@
 
     <a href="/events/" class="col-span-12 md:col-span-4 card bg-base-100 hover:bg-base-200 transition-colors border border-base-300">
         <div class="card-body">
-            <h2 class="card-title text-xl">Exhibitions</h2>
+            <h2 class="card-title text-xl">Exhibitions <span class="badge badge-sm badge-alpha rounded-full">{{ len site.Data.opendata.events }}</span></h2>
             <p class="text-base-content/70">Exhibition and event information.</p>
             <div class="card-actions justify-end mt-4">
                 <span class="text-sm">View all →</span>
@@ -28,7 +28,7 @@
 
     <a href="/media/" class="col-span-12 md:col-span-4 card bg-base-100 hover:bg-base-200 transition-colors border border-base-300">
         <div class="card-body">
-            <h2 class="card-title text-xl">Media</h2>
+            <h2 class="card-title text-xl">Media <span class="badge badge-sm badge-alpha rounded-full">{{ len site.Data.opendata.media }}</span></h2>
             <p class="text-base-content/70">Media coverage and publications.</p>
             <div class="card-actions justify-end mt-4">
                 <span class="text-sm">View all →</span>
