@@ -5,5 +5,8 @@ resources/
 # Hugo cache
 .hugo_build.lock
 
+# Node.js
+node_modules/
+
 # OS files
 .DS_Store
