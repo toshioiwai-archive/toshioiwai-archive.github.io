@@ -50,12 +50,26 @@ jobs:
       - name: Hugo バージョンを確認
         run: hugo version
 
-      # 4. GitHub Pages の設定
+      # 4. Node.js をセットアップ
+      - name: Node.js をセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: website/package-lock.json
+
+      # 5. npm 依存関係をインストール
+      - name: npm 依存関係をインストール
+        run: |
+          cd website
+          npm ci
+
+      # 6. GitHub Pages の設定
       - name: GitHub Pages の設定
         id: pages
         uses: actions/configure-pages@v5
 
-      # 5. Hugo でサイトをビルド
+      # 7. Hugo でサイトをビルド
       - name: Hugo でビルド
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
@@ -67,7 +81,7 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
-      # 6. ビルド成果物をアップロード
+      # 8. ビルド成果物をアップロード
       - name: ビルド成果物をアップロード
         uses: actions/upload-pages-artifact@v3
         with:
